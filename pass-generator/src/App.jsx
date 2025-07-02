@@ -20,6 +20,7 @@ function App() {
     setpassword(pass);
   }, [length, numberAllowed, character, setpassword]);
   const copyPassword = useCallback(() => {
+    passRef.current?.select()
     window.navigator.clipboard.writeText(password)
   }, [password]);
   useEffect(() => {
@@ -44,12 +45,12 @@ function App() {
 
           <button
             onClick={copyPassword}
-            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0"
+            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 cursor-pointer"
           >
             copy
           </button>
         </div>
-        <div className="flex text-sm gaap-x-2">
+        <div className="flex text-sm gaap-x-2 cursor-pointer">
           <div className=" flex items items-center gap-x-1">
             <input
               type="range"
